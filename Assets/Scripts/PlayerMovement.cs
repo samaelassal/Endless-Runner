@@ -1,30 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 2;
-    public float horizontalSpeed = 3;
-    public float rightLimit = 5f;
+    [Header("Movement")]
+    public float playerSpeed = 10f;
+    public float laneChangeSpeed = 10f;
+
+    [Header("Lane Limits")]
     public float leftLimit = -5f;
+    public float rightLimit = 5f;
+
+    private int currentLane = 1; // 0 = left, 1 = middle, 2 = right
+    private float[] lanes = new float[3];
+
+    void Start()
+    {
+        // Define exact lane positions
+        lanes[0] = leftLimit;
+        lanes[1] = 0f;
+        lanes[2] = rightLimit;
+    }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed, Space.World);
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        MoveForward();
+        HandleInput();
+        MoveToLane();
+    }
+
+    void MoveForward()
+    {
+        transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime, Space.World);
+    }
+
+    void HandleInput()
+    {
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (this.gameObject.transform.position.x > leftLimit)
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * horizontalSpeed);
-            }
+            currentLane--;
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (this.gameObject.transform.position.x < rightLimit)
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * horizontalSpeed * -1);
-            }
+            currentLane++;
         }
+
+        // Clamp to 3 lanes only
+        currentLane = Mathf.Clamp(currentLane, 0, 2);
+    }
+
+    void MoveToLane()
+    {
+        Vector3 targetPosition = new Vector3(
+            lanes[currentLane],
+            transform.position.y,
+            transform.position.z
+        );
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            laneChangeSpeed * Time.deltaTime
+        );
     }
 }
