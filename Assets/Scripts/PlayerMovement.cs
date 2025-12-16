@@ -10,15 +10,24 @@ public class PlayerMovement : MonoBehaviour
     public float leftLimit = -5f;
     public float rightLimit = 5f;
 
-    private int currentLane = 1; // 0 = left, 1 = middle, 2 = right
+    [Header("Jump")]
+    public float jumpForce = 6f;
+
+    private int currentLane = 1;
     private float[] lanes = new float[3];
+
+    private Rigidbody rb;
+    private Animator animator;
+    private bool isGrounded = true;
 
     void Start()
     {
-        // Define exact lane positions
         lanes[0] = leftLimit;
         lanes[1] = 0f;
         lanes[2] = rightLimit;
+
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         MoveForward();
         HandleInput();
         MoveToLane();
+        HandleJump();
     }
 
     void MoveForward()
@@ -45,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
             currentLane++;
         }
 
-        // Clamp to 3 lanes only
         currentLane = Mathf.Clamp(currentLane, 0, 2);
     }
 
@@ -62,5 +71,23 @@ public class PlayerMovement : MonoBehaviour
             targetPosition,
             laneChangeSpeed * Time.deltaTime
         );
+    }
+
+    void HandleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            animator.SetTrigger("Jump");
+            isGrounded = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }

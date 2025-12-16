@@ -8,3 +8,5 @@ public class CollisionDetect : MonoBehaviour
         thePlayer.GetComponent<PlayerMovement>().enabled = false;
     }
 }
+
+
