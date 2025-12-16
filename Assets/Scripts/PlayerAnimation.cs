@@ -2,28 +2,37 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    public float jumpForce = 7f;
+
+    private Rigidbody rb;
     private Animator animator;
-    private bool isJumping = false;
+    private bool isGrounded = true;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            isJumping = true;
+            isGrounded = false;
+
+            // Jump animation
             animator.SetTrigger("Jump");
 
-            // Allow jump again after animation
-            Invoke(nameof(ResetJump), 1f);
+            // REAL jump (physics)
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
     }
 
-    void ResetJump()
+    void OnCollisionEnter(Collision collision)
     {
-        isJumping = false;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
