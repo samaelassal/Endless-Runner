@@ -9,6 +9,6 @@ public class MasterInfo : MonoBehaviour
 
     void Update()
     {
-        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " + coinCount;
+        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "" + coinCount;
     }
 }
