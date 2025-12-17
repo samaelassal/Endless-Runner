@@ -12,7 +12,8 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float startTime = 0f;
     
     private float currentTime;
-    private bool isTimerRunning = true;
+    private bool isTimerRunning = false;
+
     
     void Start()
     {
