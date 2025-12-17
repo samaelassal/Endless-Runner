@@ -836,7 +836,6 @@ GameObject:
   - component: {fileID: 65557800}
   - component: {fileID: 65557799}
   - component: {fileID: 65557798}
-  - component: {fileID: 65557801}
   - component: {fileID: 65557802}
   m_Layer: 0
   m_Name: Obstacle01 (1)
@@ -937,23 +936,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65557794}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &65557801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65557794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be01da94752c245f69695bd66bfca0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  thePlayer: {fileID: 2146560240}
-  playerAnim: {fileID: 1410954974}
-  collisionFX: {fileID: 682136169}
-  mainCam: {fileID: 0}
-  fadeOut: {fileID: 0}
 --- !u!114 &65557802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2257,7 +2239,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
@@ -5838,7 +5820,6 @@ GameObject:
   - component: {fileID: 851629851}
   - component: {fileID: 851629850}
   - component: {fileID: 851629849}
-  - component: {fileID: 851629848}
   - component: {fileID: 851629847}
   m_Layer: 0
   m_Name: Obstacle01 (1)
@@ -5879,23 +5860,6 @@ MonoBehaviour:
   collisionFX: {fileID: 682136169}
   mainCam: {fileID: 330585543}
   fadeOut: {fileID: 962015984}
---- !u!114 &851629848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851629845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be01da94752c245f69695bd66bfca0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  thePlayer: {fileID: 2146560240}
-  playerAnim: {fileID: 1410954974}
-  collisionFX: {fileID: 682136169}
-  mainCam: {fileID: 0}
-  fadeOut: {fileID: 0}
 --- !u!65 &851629849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6674,7 +6638,6 @@ GameObject:
   - component: {fileID: 1050865461}
   - component: {fileID: 1050865460}
   - component: {fileID: 1050865459}
-  - component: {fileID: 1050865458}
   - component: {fileID: 1050865457}
   m_Layer: 0
   m_Name: Obstacle01 (1)
@@ -6715,23 +6678,6 @@ MonoBehaviour:
   collisionFX: {fileID: 682136169}
   mainCam: {fileID: 330585543}
   fadeOut: {fileID: 962015984}
---- !u!114 &1050865458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050865455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be01da94752c245f69695bd66bfca0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  thePlayer: {fileID: 2146560240}
-  playerAnim: {fileID: 1410954974}
-  collisionFX: {fileID: 682136169}
-  mainCam: {fileID: 0}
-  fadeOut: {fileID: 0}
 --- !u!65 &1050865459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11523,7 +11469,6 @@ GameObject:
   - component: {fileID: 1527213920}
   - component: {fileID: 1527213919}
   - component: {fileID: 1527213918}
-  - component: {fileID: 1527213917}
   - component: {fileID: 1527213916}
   m_Layer: 0
   m_Name: Obstacle01 (1)
@@ -11564,23 +11509,6 @@ MonoBehaviour:
   collisionFX: {fileID: 682136169}
   mainCam: {fileID: 330585543}
   fadeOut: {fileID: 962015984}
---- !u!114 &1527213917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527213914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be01da94752c245f69695bd66bfca0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  thePlayer: {fileID: 2146560240}
-  playerAnim: {fileID: 1410954974}
-  collisionFX: {fileID: 682136169}
-  mainCam: {fileID: 0}
-  fadeOut: {fileID: 0}
 --- !u!65 &1527213918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13356,7 +13284,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1797451117}
   - component: {fileID: 1797451116}
-  - component: {fileID: 1797451118}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -13392,18 +13319,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1797451118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797451115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151e9e85e3f4544afbc6f58901c60b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CodeMenu
 --- !u!1 &1813402569
 GameObject:
   m_ObjectHideFlags: 0
@@ -13654,7 +13569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 675a2bdfd076c4f01ad77bcaf7203268, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 675a2bdfd076c4f01ad77bcaf7203268, type: 3}
       propertyPath: m_LocalPosition.z
